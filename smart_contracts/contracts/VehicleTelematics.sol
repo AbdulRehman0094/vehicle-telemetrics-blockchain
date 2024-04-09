@@ -116,7 +116,13 @@ contract VehicleTelemetrics {
     function getVehiclesByOwnerAddress(
         address _owner
     ) external view returns (Vehicle[] memory) {
-        Vehicle[] memory result = new Vehicle[](vehicleCount);
+        uint256 count = 0;
+        for (uint256 i = 1; i <= vehicleCount; i++) {
+            if (vehicles[i].owner == _owner) {
+                count++;
+            }
+        }
+        Vehicle[] memory result = new Vehicle[](count);
         uint256 counter = 0;
         for (uint256 i = 1; i <= vehicleCount; i++) {
             if (vehicles[i].owner == _owner) {
@@ -128,13 +134,27 @@ contract VehicleTelemetrics {
     }
 
     function getForSaleVehicles() external view returns (Vehicle[] memory) {
-        Vehicle[] memory result = new Vehicle[](vehicleCount);
+        uint256 count = 0;
+        for (uint256 i = 1; i <= vehicleCount; i++) {
+            if (vehicles[i].forSale) {
+                count++;
+            }
+        }
+        Vehicle[] memory result = new Vehicle[](count);
         uint256 counter = 0;
         for (uint256 i = 1; i <= vehicleCount; i++) {
             if (vehicles[i].forSale) {
                 result[counter] = vehicles[i];
                 counter++;
             }
+        }
+        return result;
+    }
+
+    function getAllVehicles() external view returns (Vehicle[] memory) {
+        Vehicle[] memory result = new Vehicle[](vehicleCount);
+        for (uint256 i = 1; i <= vehicleCount; i++) {
+            result[i - 1] = vehicles[i];
         }
         return result;
     }

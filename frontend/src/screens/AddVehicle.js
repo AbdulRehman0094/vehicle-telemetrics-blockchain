@@ -2,12 +2,12 @@ import React from 'react'
 import Navbar from '../Navbar'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// make,model,varient,registrationnumber,price, forsale, kilometerTracvelled  vehiclemillage(45km/ltr)
+import { addVehicle } from '../contract';
 const AddVehicle = () => {
 
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
-    const [varient, setVarient] = useState('');
+    const [variant , setVarient] = useState('');
     const [price, setPrice] = useState('');
     const [regNumber, setRegNumber] = useState('');
     const [forSale, setSale] = useState(false);
@@ -43,12 +43,14 @@ const AddVehicle = () => {
     };
 
 
-    const addVehicle = () => {
-        // addVehicle(make,model,varient,kilometer,price,localStorage.getItem("userAddress"));
-        // alert("Vehicle Added.")
+    const addVehiclebutton = () => {
+        try {
+        addVehicle(regNumber,make,model,variant,price,forSale,kilometer,millage,localStorage.getItem("userAddress"));
+        } catch (error) {
+            console.log(error)
+        }
         setSignal(true);
         setSignal1(false);
-        console.log(signal)
     }
 
     return (
@@ -82,7 +84,7 @@ const AddVehicle = () => {
                         <p>Enter Varient:</p>
                         <input className=''
                             type="text"
-                            value={varient}
+                            value={variant}
                             onChange={handleVarient}
                         />
                     </div>
@@ -133,7 +135,7 @@ const AddVehicle = () => {
                     </div>
 
 
-                    <button onClick={addVehicle} className='card-button1a' disabled={(make.length && price.length && model.length && varient.length && regNumber.length) === 0}>Add Vehicle</button>
+                    <button onClick={addVehiclebutton} className='card-button1a' disabled={(make.length && price.length && model.length && variant.length && regNumber.length) === 0}>Add Vehicle</button>
 
                 </div>
             </div>}

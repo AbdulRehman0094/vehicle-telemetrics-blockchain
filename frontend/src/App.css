@@ -43,8 +43,18 @@ body, html {
   overflow-y: hidden;
 }
 
+.hero-image1 {
+  background-image: url('/public/vehicle.jpg'); 
+  height: 90vh;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  background-position: center;
+  background-size: cover;
+  overflow-y: auto;
+}
+
 .hero-image {
-  background-image: url('D:\Freelance\vehicle\frontend\public\vehicle.jpg'); 
+  background-image: url('/public/vehicle.jpg'); 
   height: 90vh;
   background-position: center;
   background-size: cover;
@@ -167,40 +177,12 @@ body, html {
 }
 .card2{
   display: flex;
-  justify-content: start;
-  align-items: start;
   
   }
 
   .card2 li{
     padding: 20px;
   }
-
-
-li:nth-child(1){
-  background: rgb(68, 68, 72);
-  color: white;
-}
-li:nth-child(2){
-  background: rgb(247, 247, 255);
-}
-li:nth-child(3){
-  background: rgb(247, 247, 255);
-}
-li:nth-child(4){
-  background: rgb(68, 68, 72);
-  color: white;
-}
-
-li:nth-child(5){
-  background: rgb(68, 68, 72);
-  color: white;
-}
-li:nth-child(6){
-  background: rgb(247, 247, 255);
-}
-
-
 
 
 
@@ -230,10 +212,12 @@ li:nth-child(6){
   text-decoration: none;
   list-style: none;
   font-size: large;
+  background: whitesmoke;
   font-weight: bold;
-  width: auto;
-  height: auto;
-  /* margin: 14px; */
+  width: 550px;
+  height: auto; 
+  margin: 14px;
+  
   /* background: #000; */
 }
 
@@ -361,4 +345,92 @@ li:nth-child(6){
   border: solid rgb(11, 10, 10);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+.grid{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr  1fr;
+  gap: 20px;
+  margin: 20px;
+  background: pink;
+  background-image: url('/public/vehicle.jpg');
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+.bolder{
+  font-size: large;
+  font-weight: bolder;
+  text-decoration: underline;
+  background: gray;
+  color: black;
+}
+
+.small{
+  font-size: x-small;
+}
+
+.card-button-small{
+  width: 50% ;
+  height: 40px;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*  */
+.parent{
+  background-image: url('/public/vehicle.jpg'); 
+  height: 90vh;
+  display: grid;
+  grid-template-columns:  1fr 1fr;
+  background-position: center;
+  background-size: cover;
+  overflow-y: auto;
+}
+
+.newcard {
+  background-color: #fef5f5;
+  border: 1px solid #100f0f;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 500px;
+  margin: 10px;
+  max-height: 300px;
+
+}
+
+.card-content {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.card-key {
+  flex: 1;
+  font-weight: bold;
+}
+
+.card-value {
+  flex: 2;
+}
+
+.card-button-small {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.card-button-small:hover {
+  background-color: #0056b3;
 }
