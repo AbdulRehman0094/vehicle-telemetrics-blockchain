@@ -9,8 +9,8 @@ const Homepage = () => {
 
   const handleInputChange = async (e) => {
     setUserAddress(e.target.value);
-    const result = await isAddressValid(e.target.value); // Call isAddressValid with the new value
-    setflag(result); // Update the flag state
+    const result = await isAddressValid(e.target.value); 
+    setflag(result); 
   };
 
   const handleSubmit = () => {
